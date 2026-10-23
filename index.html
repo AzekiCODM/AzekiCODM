@@ -1,1 +1,179 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRZ | CODM</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #08070e;
+}
+header {
+  padding: 24px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #100d1b;
+  border-bottom: 2px solid #a855f7;
+}
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #c084fc;
+  text-shadow: 0 0 16px #9333ea;
+}
+.tag { color: #aaa; font-size: 11px; letter-spacing: 2px; }
+.profile {
+  border: 1px solid #a855f7;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 24px;
+  background: #21132e;
+}
+.hero {
+  min-height: 320px;
+  padding: 65px 20px 45px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 35%, #522078 0%, transparent 60%),
+    linear-gradient(140deg, #191022, #09080e 70%);
+}
+.hero h1 {
+  font-size: clamp(36px, 9vw, 60px);
+  margin: 12px 0;
+  font-weight: 900;
+  text-shadow: 0 0 22px #a855f7;
+}
+.hero p { color: #c9bdd8; line-height: 1.7; }
+.line {
+  width: 75px;
+  height: 3px;
+  background: #c084fc;
+  margin: 22px auto;
+  box-shadow: 0 0 12px #a855f7;
+}
+section { padding: 25px 16px 45px; max-width: 850px; margin: auto; }
+h2 { text-align: center; letter-spacing: 2px; }
+.subtitle { text-align: center; color: #9c91aa; font-size: 13px; }
+.weapons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin-top: 28px;
+}
+.weapon {
+  min-height: 115px;
+  padding: 20px 8px;
+  text-align: center;
+  background: linear-gradient(145deg, #24152f, #130f1c);
+  border: 1px solid #7538a2;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+.weapon:hover, .weapon:focus {
+  transform: translateY(-3px);
+  border-color: #d8b4fe;
+  box-shadow: 0 0 18px #8b35bd66;
+}
+.weapon .symbol { font-size: 28px; display: block; margin-bottom: 10px; }
+.weapon strong { font-size: 12px; letter-spacing: 1px; }
+#result {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+  padding: 18px;
+  border: 1px solid #a855f7;
+  border-radius: 12px;
+  background: #171020;
+  color: #e9d5ff;
+}
+footer {
+  padding: 30px 15px;
+  text-align: center;
+  border-top: 1px solid #45245c;
+  background: #100d17;
+  color: #a99bb7;
+  font-size: 12px;
+  line-height: 2;
+}
+footer a { color: #d8b4fe; text-decoration: none; }
+@media (max-width: 340px) {
+  .weapons { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="logo">TRZ</div>
+    <div class="tag">TRIVEN ZENITH</div>
+  </div>
+  <div class="profile">✦</div>
+</header>
+
+<div class="hero">
+  <div class="tag">CALL OF DUTY MOBILE</div>
+  <h1>TRIVEN ZENITH</h1>
+  <div class="line"></div>
+  <p>PRECISION · TEAMWORK · VICTORY<br>
+  Welcome to our battlefield.</p>
+</div>
+
+<section>
+  <h2>ARSENAL</h2>
+  <p class="subtitle">SELECT YOUR WEAPON CLASS</p>
+  <div class="weapons">
+    <button class="weapon" onclick="showWeapon('Assault Rifles')">
+      <span class="symbol">⌁</span><strong>ASSAULT RIFLES</strong>
+    </button>
+    <button class="weapon" onclick="showWeapon('Submachine Guns')">
+      <span class="symbol">⌁</span><strong>SUBMACHINE GUNS</strong>
+    </button>
+    <button class="weapon" onclick="showWeapon('Light Machine Guns')">
+      <span class="symbol">▰</span><strong>LIGHT MACHINE GUNS</strong>
+    </button>
+    <button class="weapon" onclick="showWeapon('Shotguns')">
+      <span class="symbol">⌁</span><strong>SHOTGUNS</strong>
+    </button>
+    <button class="weapon" onclick="showWeapon('Marksman Rifles')">
+      <span class="symbol">⌖</span><strong>MARKSMAN RIFLES</strong>
+    </button>
+    <button class="weapon" onclick="showWeapon('Sniper Rifles')">
+      <span class="symbol">◎</span><strong>SNIPER RIFLES</strong>
+    </button>
+    <button class="weapon" onclick="showWeapon('Pistols')">
+      <span class="symbol">▪</span><strong>PISTOLS</strong>
+    </button>
+    <button class="weapon" onclick="showWeapon('Extras')">
+      <span class="symbol">＋</span><strong>EXTRAS</strong>
+    </button>
+  </div>
+  <div id="result"></div>
+</section>
+
+<footer>
+  <div class="logo">TRZ</div>
+  TRIVEN ZENITH · CODM GAMING<br>
+  <a href="https://github.com/AzekiCODM">GITHUB PROFILE</a><br>
+  BUILT FOR THE BATTLEFIELD
+</footer>
+
+<script>
+function showWeapon(name) {
+  const box = document.getElementById('result');
+  box.style.display = 'block';
+  box.textContent = name + ' — TRZ ARSENAL';
+  box.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+}
+</script>
+</body>
+    </html>
+
